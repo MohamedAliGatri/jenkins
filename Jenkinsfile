@@ -12,7 +12,7 @@ pipeline{
         stage("Maven compile"){
             steps{
                 echo "compile maven"
-                sh 'mvn clean package'
+                sh 'mvn package'
             }
         }
         stage("SonarTest integration"){
