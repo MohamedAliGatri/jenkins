@@ -9,8 +9,14 @@ pipeline{
                 echo "TESTING WEBHOOKS WITH NGROK again"
             }
         }
-        stage("SonarTest integration"){
+        stage("Maven compile"){
             steps{
+                echo "compile maven"
+                sh 'mvn clean package'
+            }
+        }
+        stage("SonarTest integration"){
+            steps{                
                 sh "mvn sonar:sonar"
             }
         }
